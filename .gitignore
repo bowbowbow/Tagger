@@ -11,3 +11,4 @@ temp
 conll05/
 dist/
 venv/
+.idea/
