@@ -33,6 +33,16 @@ You can use the vocabularies provided in the resource directory. If you want to 
 ```
 python tagger/scripts/build_vocab.py --limit LIMIT --lower TRAIN_FILE OUTPUT_DIR
 ```
+
+Example
+```
+python ./scripts/build_vocab.py --limit 100000 --lower ./conll05/conll05.train.txt ./dist
+total words: 2587103
+unique words: 38241
+vocabulary coverage: 100.00%
+```
+
+
 where `LIMIT` specifies the vocabulary size. This command will create two vocabularies named `vocab.txt` and `label.txt` in the `OUTPUT_DIR`.
 
 ### Convert data format
