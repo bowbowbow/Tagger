@@ -55,6 +55,16 @@ python tagger/scripts/input_converter.py --input_path TRAIN_FILE \
                                          --num_shards NUM_SHARDS \
                                          --shuffle --lower
 ```
+
+Example
+```
+python ./scripts/input_converter.py --input_path ./conll05/conll05.train.txt \
+                                         --output_name ./converted      \
+                                         --output_dir ./dist \
+                                         --vocab ./dist/vocab.txt ./dist/label.txt \
+                                         --num_shards 1 \
+                                         --shuffle --lower
+```
 The above command will create `NUM_SHARDS` files with pattern `NAME-*-of-*` in the `OUTPUT_DIR`.
 
 
@@ -95,6 +105,14 @@ python tagger/main.py train \
                       use_global_initializer=false,initializer_gain=1.0,train_steps=600000, \
                       learning_rate_decay=piecewise_constant,learning_rate_values=[1.0,0.5,0.25], \
                       learning_rate_boundaries=[400000,500000],device_list=[0],clip_grad_norm=1.0 \
+    --validation_params=script=run.sh
+```
+
+Example
+```
+python ./main.py train \
+    --data_path ./conll05/conll05 --model_dir train --model_name deepatt \
+    --vocab_path ./dist/vocab.txt ./dist/label.txt --emb_path /Users/seungwon/Desktop/data/glove/glove.6B.100d.txt \
     --validation_params=script=run.sh
 ```
 
